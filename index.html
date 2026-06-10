@@ -135,12 +135,12 @@
       <canvas class="hero__canvas drone-canvas" id="droneCanvas" aria-hidden="true"></canvas>
 
       <div class="hero__inner">
-        <div class="hero__status reveal">
+        <div class="hero__status reveal" id="heroStatus">
           <span class="pulse"></span>
           Sr. Robotics Engineer · 7+ Years Experience · MTech in Mechatronics
         </div>
 
-        <p class="hero__eyebrow reveal" data-scramble>Chirag Makwana</p>
+        <p class="hero__eyebrow reveal" id="heroEyebrow" data-scramble>Chirag Makwana</p>
 
         <h1 class="hero__title">
           <span class="line"><span class="word">Building</span> <span class="word">autonomy</span></span>
@@ -148,7 +148,7 @@
               class="word grad">that</span> <span class="word grad">act.</span></span>
         </h1>
 
-        <p class="hero__lede reveal">
+        <p class="hero__lede reveal" id="heroLede">
           I build and deploy autonomy stacks that turn complex code into physical movement.
           My work spans <strong>humanoid visual grounding</strong>, <strong>heavy offroad vehicle navigation</strong>,
           <strong>autonomous UAV fleets</strong>, and <strong>multi-robot coordination</strong> on real hardware.
@@ -164,7 +164,7 @@
           <a href="#contact" class="btn btn--ghost" data-cursor="hover">Get in touch</a>
         </div>
 
-        <div class="hero__meta reveal">
+        <div class="hero__meta reveal" id="heroMeta">
           <a href="https://github.com/chiragmakwana0296" target="_blank" rel="noopener" data-cursor="hover">GitHub</a>
           <span>/</span>
           <a href="https://linkedin.com/in/chiragmakwana" target="_blank" rel="noopener"
@@ -228,22 +228,22 @@
 
         <div class="about__body">
           <p class="about__hello reveal">Hi, I&rsquo;m</p>
-          <h3 class="about__signature reveal" data-scramble>Chirag Makwana</h3>
-          <p class="about__akamono reveal">— Senior Robotics Engineer.</p>
+          <h3 class="about__signature reveal" id="aboutSignature" data-scramble>Chirag Makwana</h3>
+          <p class="about__akamono reveal" id="aboutAkamono">— Senior Robotics Engineer.</p>
 
-          <p class="about__lead reveal">
+          <p class="about__lead reveal" id="aboutLead">
             To me, robotics is where complex mathematics meets the physical world. I specialize in building
             full-stack autonomy software (C++/Python, ROS/ROS2) and making sure it runs reliably on physical hardware in
             unstructured environments.
           </p>
-          <p class="reveal">
+          <p class="reveal" id="aboutParagraph1">
             Over the past 7 years, I have worked across diverse robotics domains. At <strong>Jio Platform Ltd</strong>,
             I developed
             real-time visual grounding and pose estimation pipelines on Nvidia Jetson AGX for humanoid manipulators.
             At <strong>Novus Hi-Tech</strong>, I architected navigation frameworks and 2.5D multi-gridmap fusion for
             offroad heavy vehicles (JCBs).
           </p>
-          <p class="reveal">
+          <p class="reveal" id="aboutParagraph2">
             My engineering repertoire includes designing custom motion planners, building autonomous flight controllers
             and behavioral landing stacks
             for UAVs (PX4/ArduPilot, Behavior Trees), and developing fleet management platforms using OpenRMF. I hold an
@@ -252,13 +252,13 @@
           </p>
 
           <div class="stats reveal">
-            <div class="stat"><span class="stat__num" data-count="7" data-suffix="+">0</span><span
+            <div class="stat"><span class="stat__num" data-count="7" data-suffix="+" id="statExperience">0</span><span
                 class="stat__label">Years Experience</span></div>
-            <div class="stat"><span class="stat__num" data-count="6" data-suffix="">0</span><span
+            <div class="stat"><span class="stat__num" data-count="6" data-suffix="" id="statCompanies">0</span><span
                 class="stat__label">Companies Served</span></div>
-            <div class="stat"><span class="stat__num" data-count="1" data-suffix="">0</span><span
+            <div class="stat"><span class="stat__num" data-count="1" data-suffix="" id="statPublications">0</span><span
                 class="stat__label">Publications</span></div>
-            <div class="stat"><span class="stat__num" data-count="2" data-suffix="">0</span><span
+            <div class="stat"><span class="stat__num" data-count="2" data-suffix="" id="statDegrees">0</span><span
                 class="stat__label">Tech Degrees</span></div>
           </div>
         </div>
@@ -632,15 +632,15 @@
           deployments, get in touch.
         </p>
         <a href="mailto:chiragmakwana02@gmail.com" class="contact__email reveal"
-          data-cursor="hover">chiragmakwana02@gmail.com</a>
+          data-cursor="hover" id="contactEmailLink">chiragmakwana02@gmail.com</a>
 
-        <div class="contact__row reveal">
+        <div class="contact__row reveal" id="contactLinks">
           <a href="https://github.com/chiragmakwana0296" target="_blank" rel="noopener" class="btn btn--ghost"
-            data-cursor="hover">GitHub</a>
+            data-cursor="hover" id="contactGithub">GitHub</a>
           <a href="https://linkedin.com/in/chiragmakwana" target="_blank" rel="noopener" class="btn btn--ghost"
-            data-cursor="hover">LinkedIn</a>
-          <a href="tel:+917276282798" class="btn btn--ghost" data-cursor="hover">Call +91 7276282798</a>
-          <a href="mailto:chiragmakwana02@gmail.com" class="btn btn--solid" data-cursor="hover">Send Email</a>
+            data-cursor="hover" id="contactLinkedin">LinkedIn</a>
+          <a href="tel:+917276282798" class="btn btn--ghost" data-cursor="hover" id="contactPhone">Call +91 7276282798</a>
+          <a href="mailto:chiragmakwana02@gmail.com" class="btn btn--solid" data-cursor="hover" id="contactEmail">Send Email</a>
         </div>
       </div>
     </section>
