@@ -95,19 +95,108 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   filter: blur(40px); opacity: .9; transition: opacity .6s var(--ease);
 }
 
-/* ---------- Cursor ---------- */
+/* ---------- Cursor Themes Configuration ---------- */
 .cursor, .cursor-ring {
   position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
-  border-radius: 50%; transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  transition: opacity .3s;
+}
+@media (hover: none) { .cursor, .cursor-ring, .cursor-trail-dot { display: none !important; } }
+
+/* Theme: None */
+body.cursor-theme-none { cursor: auto; }
+body.cursor-theme-none .cursor,
+body.cursor-theme-none .cursor-ring {
+  display: none !important;
+}
+
+/* Theme: Default (Dot + Ring) */
+body.cursor-theme-default { cursor: none; }
+body.cursor-theme-default .cursor {
+  width: 7px; height: 7px; background: #fff; border-radius: 50%;
   mix-blend-mode: difference;
+  transition: width .2s, height .2s;
+  display: block;
 }
-.cursor { width: 7px; height: 7px; background: #fff; transition: width .2s, height .2s; }
-.cursor-ring {
+body.cursor-theme-default .cursor-ring {
   width: 36px; height: 36px; border: 1px solid rgba(255,255,255,.6);
+  border-radius: 50%; mix-blend-mode: difference;
   transition: width .25s var(--ease), height .25s var(--ease), border-color .25s, background .25s;
+  display: block;
 }
-.cursor-ring.is-hover { width: 58px; height: 58px; background: rgba(255,255,255,.08); border-color: transparent; }
-@media (hover: none) { .cursor, .cursor-ring { display: none; } }
+body.cursor-theme-default .cursor-ring.is-hover {
+  width: 58px; height: 58px; background: rgba(255,255,255,.08); border-color: transparent;
+}
+
+/* Theme: Crosshair (Robotics Reticle - Default) */
+body.cursor-theme-crosshair { cursor: none; }
+body.cursor-theme-crosshair .cursor {
+  width: 5px; height: 5px; background: var(--accent); border-radius: 50%;
+  display: block;
+}
+body.cursor-theme-crosshair .cursor-ring {
+  width: 44px; height: 44px; border-radius: 50%;
+  transition: width .3s var(--ease), height .3s var(--ease), border-color .3s;
+  display: block;
+}
+body.cursor-theme-crosshair .cursor-ring-inner {
+  width: 100%; height: 100%;
+  border: 1.5px dashed var(--accent); border-radius: 50%;
+  box-sizing: border-box;
+  animation: cursor-spin-anim 10s linear infinite;
+  display: block;
+}
+@keyframes cursor-spin-anim {
+  to { transform: rotate(360deg); }
+}
+body.cursor-theme-crosshair .cursor-ring.is-hover {
+  width: 24px; height: 24px;
+}
+body.cursor-theme-crosshair .cursor-ring.is-hover .cursor-ring-inner {
+  border: 2px solid var(--accent-3);
+  animation-duration: 2.5s;
+}
+
+/* Theme: Invert (Solid Circle Blend) */
+body.cursor-theme-invert { cursor: none; }
+body.cursor-theme-invert .cursor {
+  display: none !important;
+}
+body.cursor-theme-invert .cursor-ring {
+  width: 28px; height: 28px; background: #fff; border-radius: 50%;
+  mix-blend-mode: difference;
+  transition: width .25s var(--ease), height .25s var(--ease);
+  display: block;
+}
+body.cursor-theme-invert .cursor-ring.is-hover {
+  width: 64px; height: 64px;
+}
+
+/* Theme: Spotlight (Background Glow Only) */
+body.cursor-theme-spotlight { cursor: auto; }
+body.cursor-theme-spotlight .cursor,
+body.cursor-theme-spotlight .cursor-ring {
+  display: none !important;
+}
+body.cursor-theme-spotlight .glow {
+  width: 24vmax; height: 24vmax;
+  background: radial-gradient(circle at center, rgba(87,227,201,0.3) 0%, rgba(124,140,255,0.08) 40%, transparent 70%);
+  filter: blur(24px); opacity: 1;
+}
+
+/* Theme: Trail (Liquid Trail) */
+body.cursor-theme-trail { cursor: none; }
+body.cursor-theme-trail .cursor,
+body.cursor-theme-trail .cursor-ring {
+  display: none !important;
+}
+.cursor-trail-dot {
+  position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none;
+  background: var(--accent); border-radius: 50%; transform: translate(-50%,-50%);
+  opacity: var(--op);
+  will-change: transform;
+}
+
 
 /* ---------- Scroll progress ---------- */
 .scroll-progress {

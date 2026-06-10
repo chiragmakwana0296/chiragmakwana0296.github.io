@@ -37,25 +37,85 @@
     document.body.classList.add('topbar-off');
   });
 
+  const CURSOR_CONFIG = {
+    // Themes: 'default', 'crosshair', 'spotlight', 'invert', 'trail', 'none'
+    theme: 'crosshair'
+  };
+
   /* ---------- Custom cursor ---------- */
   const dot = $('#cursorDot'), ring = $('#cursorRing');
-  if (dot && ring && window.matchMedia('(hover: hover)').matches) {
-    let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
-    addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
-    });
-    (function loop() {
-      rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
-      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
-      requestAnimationFrame(loop);
-    })();
-    document.addEventListener('mouseover', e => {
-      if (e.target.closest('[data-cursor="hover"], a, button')) ring.classList.add('is-hover');
-    });
-    document.addEventListener('mouseout', e => {
-      if (e.target.closest('[data-cursor="hover"], a, button')) ring.classList.remove('is-hover');
-    });
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.body.classList.add(`cursor-theme-${CURSOR_CONFIG.theme}`);
+
+    if (CURSOR_CONFIG.theme === 'crosshair' && ring) {
+      ring.innerHTML = '<div class="cursor-ring-inner"></div>';
+    }
+
+    if (CURSOR_CONFIG.theme === 'trail') {
+      const trailLength = 6;
+      const dots = [];
+      for (let i = 0; i < trailLength; i++) {
+        const d = document.createElement('div');
+        d.className = 'cursor-trail-dot';
+        d.style.setProperty('--op', (1 - i / (trailLength + 1)).toFixed(2));
+        const size = Math.max(3, 11 - i * 1.5);
+        d.style.width = size + 'px';
+        d.style.height = size + 'px';
+        document.body.appendChild(d);
+        dots.push({ el: d, x: innerWidth / 2, y: innerHeight / 2 });
+      }
+
+      let mx = innerWidth / 2, my = innerHeight / 2;
+      addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+      document.addEventListener('mouseover', e => {
+        if (e.target.closest('[data-cursor="hover"], a, button')) {
+          dots.forEach(dot => {
+            dot.el.style.width = '14px';
+            dot.el.style.height = '14px';
+            dot.el.style.background = 'var(--accent-3)';
+          });
+        }
+      });
+      document.addEventListener('mouseout', e => {
+        if (e.target.closest('[data-cursor="hover"], a, button')) {
+          dots.forEach((dot, i) => {
+            const size = Math.max(3, 11 - i * 1.5);
+            dot.el.style.width = size + 'px';
+            dot.el.style.height = size + 'px';
+            dot.el.style.background = 'var(--accent)';
+          });
+        }
+      });
+
+      (function trailLoop() {
+        let cx = mx, cy = my;
+        dots.forEach((dot, index) => {
+          dot.x += (cx - dot.x) * 0.38;
+          dot.y += (cy - dot.y) * 0.38;
+          dot.el.style.transform = `translate(${dot.x}px, ${dot.y}px) translate(-50%,-50%)`;
+          cx = dot.x;
+          cy = dot.y;
+        });
+        requestAnimationFrame(trailLoop);
+      })();
+    } else if (dot && ring && CURSOR_CONFIG.theme !== 'none' && CURSOR_CONFIG.theme !== 'spotlight') {
+      let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+      addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+      });
+      (function loop() {
+        rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
+        ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+        requestAnimationFrame(loop);
+      })();
+      document.addEventListener('mouseover', e => {
+        if (e.target.closest('[data-cursor="hover"], a, button')) ring.classList.add('is-hover');
+      });
+      document.addEventListener('mouseout', e => {
+        if (e.target.closest('[data-cursor="hover"], a, button')) ring.classList.remove('is-hover');
+      });
+    }
   }
 
   /* ---------- Glow follows pointer ---------- */
