@@ -1,7 +1,7 @@
 # Chirag Makwana Portfolio Data
 
 ## Hero
-- status: Sr. Robotics Engineer · 7+ Years Experience · MTech in Mechatronics
+- status: Sr. Robotics Engineer · 8 Years Experience · MTech in Mechatronics
 - eyebrow: Chirag Makwana
 - title: Building autonomy for robots that act.
 - lede: I build and deploy autonomy stacks that turn complex code into physical movement. My work spans **humanoid visual grounding**, **heavy offroad vehicle navigation**, **autonomous UAV fleets**, and **multi-robot coordination** on real hardware.
@@ -13,9 +13,9 @@
 - paragraph1: Over the past 7 years, I have worked across diverse robotics domains. At **Jio Platform Ltd**, I developed real-time visual grounding and pose estimation pipelines on Nvidia Jetson AGX for humanoid manipulators. At **Novus Hi-Tech**, I architected navigation frameworks and 2.5D multi-gridmap fusion for offroad heavy vehicles (JCBs).
 - paragraph2: My engineering repertoire includes designing custom motion planners, building autonomous flight controllers and behavioral landing stacks for UAVs (PX4/ArduPilot, Behavior Trees), and developing fleet management platforms using OpenRMF. I hold an M.Tech in Mechatronics and Automation, which anchors my work in control systems, kinematics, and robust software architecture.
 - stat_experience: 7+
-- stat_companies: 6
-- stat_publications: 1
-- stat_degrees: 2
+<!-- - stat_companies: 6 -->
+<!-- - stat_publications: 1 -->
+<!-- - stat_degrees: 0 -->
 
 ## Work
 ### Visual Grounding & 6DoF Pose
@@ -135,4 +135,4 @@
 - phone: +91 7276282798
 - email: chiragmakwana02@gmail.com
 - github: https://github.com/chiragmakwana0296
-- linkedin: https://linkedin.com/in/chiragmakwana
+- linkedin: https://linkedin.com/in/chiragmakwana02
