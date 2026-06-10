@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="cmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#57E3C9" />
+      <stop offset="55%" stop-color="#7C8CFF" />
+      <stop offset="100%" stop-color="#C18CFF" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="20" fill="#07080B" />
+  <rect width="90" height="90" x="5" y="5" rx="16" fill="none" stroke="url(#cmGrad)" stroke-width="2" opacity="0.3" />
+  <text x="50%" y="54%" font-family="'Space Grotesk', 'Inter', sans-serif" font-weight="700" font-size="38" fill="url(#cmGrad)" dominant-baseline="middle" text-anchor="middle" letter-spacing="1">CM</text>
+</svg>

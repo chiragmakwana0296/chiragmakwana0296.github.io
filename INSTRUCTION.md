@@ -1,0 +1,2 @@
+https://www.acsu.buffalo.edu/~jagadesw/#home use this template website and create my website, the name will be 'CHIRAG MAKWANA' instead of 'Jagadeswara Pavan Kumar.', the work done at different places will be written in "MY WORK" section  
+replace about section with my details, refer my resume ChiragMakwanaResume_nvidia.pdf and create my website. 

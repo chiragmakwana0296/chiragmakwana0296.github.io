@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07080B" />
+
+  <title>Chirag Makwana — Robotics Lead & Engineer</title>
+  <meta name="description" content="Chirag Makwana — Senior Robotics Engineer specializing in autonomy stacks, humanoid robot manipulation, drone flight firmware, offroad vehicle navigation, and fleet management." />
+  <meta name="author" content="Chirag Makwana" />
+  <meta name="keywords" content="robotics, autonomy, humanoid, UAV, drones, OpenRMF, ROS2, computer vision, path planning, sensor fusion, mechatronics" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Chirag Makwana — Senior Robotics Engineer" />
+  <meta property="og:description" content="Building autonomy stacks for humanoids, drones, offroad vehicles, and warehouse fleets. 7+ years of industrial experience." />
+  <meta property="og:image" content="assets/img/portrait.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/main.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Chirag Makwana",
+    "jobTitle": "Senior Robotics Engineer",
+    "email": "mailto:chiragmakwana02@gmail.com",
+    "telephone": "+91 7276282798",
+    "url": "https://github.com/chiragmakwana0296",
+    "sameAs": [
+      "https://github.com/chiragmakwana0296",
+      "https://linkedin.com/in/chiragmakwana"
+    ],
+    "knowsAbout": ["Robotics", "Humanoid Manipulation", "Drone Autonomy", "Fleet Management", "ROS2", "PX4", "ArduPilot", "Sensor Fusion", "Mapping", "Path Planning"]
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Top announcement -->
+  <div class="topbar" id="topbar" role="note">
+    <p>I am a <strong>robotics professional</strong> with 7+ years of industrial experience. Refer to my details below or contact me directly.</p>
+    <button class="topbar__close" id="topbarClose" type="button" aria-label="Dismiss note">&times;</button>
+  </div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__mark">CM</div>
+      <div class="preloader__bar"><span></span></div>
+      <div class="preloader__pct" id="preloaderPct">0</div>
+    </div>
+  </div>
+
+  <!-- Decorative layers -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="glow" id="glow" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Section rail -->
+  <nav class="rail" id="rail" aria-label="Section navigation">
+    <a href="#hero" data-label="Top" class="is-active" data-cursor="hover"><span></span></a>
+    <a href="#about" data-label="About" data-cursor="hover"><span></span></a>
+    <a href="#work" data-label="My Work" data-cursor="hover"><span></span></a>
+    <a href="#toolkit" data-label="Skills" data-cursor="hover"><span></span></a>
+    <a href="#publications" data-label="Research &amp; Edu" data-cursor="hover"><span></span></a>
+    <a href="#contact" data-label="Contact" data-cursor="hover"><span></span></a>
+  </nav>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__brand" data-cursor="hover">
+      <span class="nav__brand-mark">CM</span>
+      <span class="nav__brand-text">Chirag&nbsp;Makwana</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about" data-cursor="hover">About</a>
+      <a href="#work" data-cursor="hover">My Work</a>
+      <a href="#toolkit" data-cursor="hover">Skills</a>
+      <a href="#publications" data-cursor="hover">Research &amp; Edu</a>
+      <a href="#contact" data-cursor="hover">Contact</a>
+    </nav>
+    <div class="nav__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme" data-cursor="hover">
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="4.2"/><g><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.5" y1="4.5" x2="6.6" y2="6.6"/><line x1="17.4" y1="17.4" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.6" y2="17.4"/><line x1="17.4" y1="6.6" x2="19.5" y2="4.5"/></g></svg>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="18" height="18"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a href="#contact" class="btn btn--ghost nav__resume" data-cursor="hover">Contact</a>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="home">
+
+    <!-- ====================== HERO ====================== -->
+    <section class="hero" id="hero">
+      <canvas class="hero__canvas" id="swarm" aria-hidden="true"></canvas>
+      <canvas class="hero__canvas drone-canvas" id="droneCanvas" aria-hidden="true"></canvas>
+
+      <div class="hero__inner">
+        <div class="hero__status reveal">
+          <span class="pulse"></span>
+          Sr. Robotics Engineer · 7+ Years Experience · MTech in Mechatronics
+        </div>
+
+        <p class="hero__eyebrow reveal" data-scramble>Chirag Makwana</p>
+
+        <h1 class="hero__title">
+          <span class="line"><span class="word">Building</span> <span class="word">autonomy</span></span>
+          <span class="line"><span class="word">for</span> <span class="word grad">robots</span> <span class="word grad">that</span> <span class="word grad">act.</span></span>
+        </h1>
+
+        <p class="hero__lede reveal">
+          I build and deploy autonomy stacks that turn complex code into physical movement. 
+          My work spans <strong>humanoid visual grounding</strong>, <strong>heavy offroad vehicle navigation</strong>, 
+          <strong>autonomous UAV fleets</strong>, and <strong>multi-robot coordination</strong> on real hardware.
+        </p>
+
+        <div class="hero__cta reveal">
+          <a href="#work" class="btn btn--solid" data-cursor="hover">
+            Explore My Work
+            <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#contact" class="btn btn--ghost" data-cursor="hover">Get in touch</a>
+        </div>
+
+        <div class="hero__meta reveal">
+          <a href="https://github.com/chiragmakwana0296" target="_blank" rel="noopener" data-cursor="hover">GitHub</a>
+          <span>/</span>
+          <a href="https://linkedin.com/in/chiragmakwana" target="_blank" rel="noopener" data-cursor="hover">LinkedIn</a>
+          <span>/</span>
+          <a href="mailto:chiragmakwana02@gmail.com" data-cursor="hover">Email</a>
+          <span>/</span>
+          <a href="tel:+917276282798" data-cursor="hover">Phone</a>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" data-cursor="hover" aria-label="Scroll to content">
+        <span>Scroll</span>
+        <span class="hero__scroll-line"></span>
+      </a>
+
+      <p class="hero__hint" aria-hidden="true">move your cursor across the screen to fly the quadcopter</p>
+    </section>
+
+    <!-- ====================== MARQUEE ====================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Humanoid Manipulation</span><i>✦</i>
+        <span>Offroad Navigation</span><i>✦</i>
+        <span>UAV Drone Autonomy</span><i>✦</i>
+        <span>Fleet Management &amp; OpenRMF</span><i>✦</i>
+        <span>Sensor Fusion &amp; 3D Mapping</span><i>✦</i>
+        <span>Behavior Trees (C++)</span><i>✦</i>
+        <span>ROS/ROS2 Stack Development</span><i>✦</i>
+        <span>Humanoid Manipulation</span><i>✦</i>
+        <span>Offroad Navigation</span><i>✦</i>
+        <span>UAV Drone Autonomy</span><i>✦</i>
+        <span>Fleet Management &amp; OpenRMF</span><i>✦</i>
+        <span>Sensor Fusion &amp; 3D Mapping</span><i>✦</i>
+        <span>Behavior Trees (C++)</span><i>✦</i>
+        <span>ROS/ROS2 Stack Development</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ====================== ABOUT ====================== -->
+    <section class="section about" id="about">
+      <div class="section__head">
+        <span class="section__index">01</span>
+        <h2 class="section__title reveal">About</h2>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__media reveal">
+          <div class="about__photo">
+            <picture>
+              <img src="assets/img/portrait.png" alt="Chirag Makwana" width="960" height="960" loading="lazy" decoding="async" />
+            </picture>
+            <div class="about__photo-frame"></div>
+          </div>
+          <div class="about__badge">
+            <span class="about__badge-k">M.Tech</span>
+            <span class="about__badge-v">Mechatronics &amp; Automation<br/>Robotics Professional</span>
+          </div>
+        </div>
+
+        <div class="about__body">
+          <p class="about__hello reveal">Hi, I&rsquo;m</p>
+          <h3 class="about__signature reveal" data-scramble>Chirag Makwana</h3>
+          <p class="about__akamono reveal">— Senior Robotics Engineer.</p>
+
+          <p class="about__lead reveal">
+            To me, robotics is where complex mathematics meets the physical world. I specialize in building 
+            full-stack autonomy software (C++/Python, ROS/ROS2) and making sure it runs reliably on physical hardware in unstructured environments.
+          </p>
+          <p class="reveal">
+            Over the past 7 years, I have worked across diverse robotics domains. At <strong>Jio Platform Ltd</strong>, I developed 
+            real-time visual grounding and pose estimation pipelines on Nvidia Jetson AGX for humanoid manipulators. 
+            At <strong>Novus Hi-Tech</strong>, I architected navigation frameworks and 2.5D multi-gridmap fusion for offroad heavy vehicles (JCBs).
+          </p>
+          <p class="reveal">
+            My engineering repertoire includes designing custom motion planners, building autonomous flight controllers and behavioral landing stacks 
+            for UAVs (PX4/ArduPilot, Behavior Trees), and developing fleet management platforms using OpenRMF. I hold an M.Tech in Mechatronics and 
+            Automation, which anchors my work in control systems, kinematics, and robust software architecture.
+          </p>
+
+          <div class="stats reveal">
+            <div class="stat"><span class="stat__num" data-count="7" data-suffix="+">0</span><span class="stat__label">Years Experience</span></div>
+            <div class="stat"><span class="stat__num" data-count="6" data-suffix="">0</span><span class="stat__label">Companies Served</span></div>
+            <div class="stat"><span class="stat__num" data-count="1" data-suffix="">0</span><span class="stat__label">Publications</span></div>
+            <div class="stat"><span class="stat__num" data-count="2" data-suffix="">0</span><span class="stat__label">Tech Degrees</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== MY WORK (PROJECT CARDS) ====================== -->
+    <section class="section work" id="work">
+      <div class="section__head">
+        <span class="section__index">02</span>
+        <h2 class="section__title reveal">My Work</h2>
+        <p class="section__sub reveal">A selection of key robotics systems and stacks I have architected, built, and deployed in the industry.</p>
+      </div>
+
+      <div class="work__filters reveal">
+        <button class="chip is-active" data-filter="all" data-cursor="hover">All Systems</button>
+        <button class="chip" data-filter="manipulation" data-cursor="hover">Manipulation</button>
+        <button class="chip" data-filter="navigation" data-cursor="hover">Navigation</button>
+        <button class="chip" data-filter="drones" data-cursor="hover">UAV / Drones</button>
+        <button class="chip" data-filter="fleets" data-cursor="hover">Fleet Systems</button>
+      </div>
+
+      <div class="work__grid">
+        <!-- Card 1 -->
+        <div class="pcard reveal" data-cat="manipulation" data-scene="caption" data-cursor="hover">
+          <div class="pcard__scene"></div>
+          <div class="pcard__top">
+            <span class="pcard__tag">Humanoid Manipulation</span>
+            <span class="pcard__arrow">↗</span>
+          </div>
+          <h3>Visual Grounding &amp; 6DoF Pose</h3>
+          <p>Mapped natural language instructions to a humanoid robot's end-effector workspace. Optimized pose estimation pipelines on Jetson AGX, boosting inference frame rates by 40% using foundation models.</p>
+          <div class="pcard__stack">
+            <span>Jetson_AGX</span><span>6DoF_Pose</span><span>Foundation_Models</span><span>C++</span>
+          </div>
+          <span class="pcard__link">Jio Platform Ltd</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="pcard reveal" data-cat="navigation" data-scene="grid" data-cursor="hover">
+          <div class="pcard__scene"></div>
+          <div class="pcard__top">
+            <span class="pcard__tag">Heavy Vehicles</span>
+            <span class="pcard__arrow">↗</span>
+          </div>
+          <h3>Offroad JCB Navigation Stack</h3>
+          <p>Architected a complete navigation framework for an offroad skid-steer JCB vehicle. Developed custom path planners, route trackers, and robust motion controllers for unstructured environments.</p>
+          <div class="pcard__stack">
+            <span>Skid_Steer</span><span>Path_Planners</span><span>Route_Tracking</span><span>C++</span>
+          </div>
+          <span class="pcard__link">Novus Hi-Tech</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="pcard reveal" data-cat="navigation" data-scene="points" data-cursor="hover">
+          <div class="pcard__scene"></div>
+          <div class="pcard__top">
+            <span class="pcard__tag">Sensor Fusion</span>
+            <span class="pcard__arrow">↗</span>
+          </div>
+          <h3>2.5D Map Fusion &amp; SLAM</h3>
+          <p>Created probabilistic, evidential, and context-based gridmap fusion frameworks. Implemented multi-sensor mapping utilizing Laser, Camera, and Radar datasets on ground vehicles.</p>
+          <div class="pcard__stack">
+            <span>2.5D_Mapping</span><span>Gridmap_Fusion</span><span>Radar_CV_Laser</span><span>ROS</span>
+          </div>
+          <span class="pcard__link">Novus &amp; Acceleration Robotics</span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="pcard reveal" data-cat="drones" data-scene="flight" data-cursor="hover">
+          <div class="pcard__scene"></div>
+          <div class="pcard__top">
+            <span class="pcard__tag">UAV / Drones</span>
+            <span class="pcard__arrow">↗</span>
+          </div>
+          <h3>Drone Autonomy &amp; OS Stack</h3>
+          <p>Built a dockerized ROS OS for PX4/ArduPilot flight controllers. Developed behavioral landing systems, geo-fencing, I2C streaming packages, and WebSocket APIs with offline synchronization capabilities.</p>
+          <div class="pcard__stack">
+            <span>PX4_Ardupilot</span><span>Behavior_Trees</span><span>Mavros</span><span>AWS_IoT</span>
+          </div>
+          <span class="pcard__link">Exadatum &amp; Acceleration Robotics</span>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="pcard reveal" data-cat="fleets" data-scene="coverage" data-cursor="hover">
+          <div class="pcard__scene"></div>
+          <div class="pcard__top">
+            <span class="pcard__tag">Multi-Robot</span>
+            <span class="pcard__arrow">↗</span>
+          </div>
+          <h3>Fleet Management &amp; Dispatch</h3>
+          <p>Created custom scheduling and dispatch systems for agricultural and industrial robots. Integrated multiple robots dynamically inside Gazebo and managed operations using OpenRMF and ROS2.</p>
+          <div class="pcard__stack">
+            <span>OpenRMF</span><span>ROS2</span><span>BehaviorTrees_CPP</span><span>Gazebo</span>
+          </div>
+          <span class="pcard__link">Acceleration Robotics</span>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="pcard reveal" data-cat="manipulation" data-scene="tokens" data-cursor="hover">
+          <div class="pcard__scene"></div>
+          <div class="pcard__top">
+            <span class="pcard__tag">Mechatronics</span>
+            <span class="pcard__arrow">↗</span>
+          </div>
+          <h3>Sport Medical Mechatronic Devices</h3>
+          <p>Researched and built proof-of-concepts for mechatronic sport-medical devices. Developed geometric/kinematic posture-correction algorithms, GUI firmware, and AWS data pipelines.</p>
+          <div class="pcard__stack">
+            <span>Kinematics</span><span>GUI_Firmware</span><span>Python</span><span>Sensors</span>
+          </div>
+          <span class="pcard__link">Futuring Design</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== DETAILED EXPERIENCE LOG ====================== -->
+    <section class="section journey" id="experience">
+      <div class="section__head">
+        <span class="section__index">03</span>
+        <h2 class="section__title reveal">Experience</h2>
+        <p class="section__sub reveal">A chronological log of my work history and contributions in the robotics industry.</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Jio -->
+        <div class="tl-item reveal" data-cursor="hover">
+          <div class="tl-dot"></div>
+          <div class="tl-time">July 2025 — Present</div>
+          <div class="tl-body">
+            <h3>Sr. Robotics Engineer</h3>
+            <span class="tl-org">Jio Platform Ltd · New Mumbai, India</span>
+            <p>Developing advanced software stacks for humanoid robotics systems.</p>
+            <ul>
+              <li>Implemented real-time visual grounding algorithms to map spatial instructions directly to the humanoid robot’s end-effector workspace.</li>
+              <li>Boosted inference frame rates by 40% by optimizing detection, segmentation, and 6DoF object pose estimation pipelines leveraging foundation models on Jetson AGX for real-time humanoid manipulation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Novus -->
+        <div class="tl-item reveal" data-cursor="hover">
+          <div class="tl-dot"></div>
+          <div class="tl-time">July 2024 — July 2025</div>
+          <div class="tl-body">
+            <h3>Sr. Research Engineer</h3>
+            <span class="tl-org">Novus Hi-Tech Robotic Systemz Pvt. Ltd. · Gurgaon, India</span>
+            <p>Led R&amp;D for autonomous heavy machinery and offroad vehicles.</p>
+            <ul>
+              <li>Architected the navigation framework for an offroad skid-steer JCB vehicle, implementing custom path planners, motion controllers, and route tracking.</li>
+              <li>Developed 2.5D Mapping and Context-based multi-gridmap fusion algorithms.</li>
+              <li>Overseen development of multi-information gridmap fusion based on Probabilistic, Evidential, and Cv-class based Context methods.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Acceleration -->
+        <div class="tl-item reveal" data-cursor="hover">
+          <div class="tl-dot"></div>
+          <div class="tl-time">January 2021 — June 2024</div>
+          <div class="tl-body">
+            <h3>Sr. Robotics Engineer</h3>
+            <span class="tl-org">Acceleration Robotics (TechnoYantra Robotics Pvt Ltd) · Pune, India</span>
+            <p>Designed and built multi-modal sensor mapping and drone autonomy architectures.</p>
+            <ul>
+              <li>Designed, developed, and deployed a 2.5D Laser, Computer Vision, and Radar-based mapping framework for autonomous vehicles.</li>
+              <li>Designed custom local/motion planners for holonomic drive robots.</li>
+              <li>Developed a custom fleet management system for agricultural vehicles using RMF ROS2, including a global coverage planner.</li>
+              <li>Created software modules for scheduling and managing robot fleets using BehaviorTree.CPP, with dynamic scale testing in Gazebo.</li>
+              <li>Built autonomy stacks, sensor-fusion, navigation, and landing systems for delivery drones using PX4, Mavros, and BehaviorTrees.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Exadatum -->
+        <div class="tl-item reveal" data-cursor="hover">
+          <div class="tl-dot"></div>
+          <div class="tl-time">March 2020 — December 2020</div>
+          <div class="tl-body">
+            <h3>Robotics Engineer</h3>
+            <span class="tl-org">Exadatum Pvt. Ltd. · Pune, India</span>
+            <p>Bridged mechatronic hardware and AWS cloud networks for aerial systems.</p>
+            <ul>
+              <li>Developed an end-to-end pipeline for setting up drones on AWS-IoT core using CloudFormation, automating the deployment of pre-configured Linux images on Raspberry Pi.</li>
+              <li>Built a dockerized operating system based on ROS for Mavlink-based flight controllers (Ardupilot/PX4).</li>
+              <li>Developed ROS packages for geo-fencing, I2C device data capture, and streaming to the cloud via MQTT and AWS Kinesis.</li>
+              <li>Implemented a WebSocket-based MAVROS API on AWS Lambda for front-end to Drone-OS communication with offline sync.</li>
+              <li>Designed and 3D-modeled a commercial-grade survey Hexa-copter with a 2 kg payload capacity.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Futuring -->
+        <div class="tl-item reveal" data-cursor="hover">
+          <div class="tl-dot"></div>
+          <div class="tl-time">August 2018 — March 2020</div>
+          <div class="tl-body">
+            <h3>Consultant (Mechatronics) &amp; Graduate Trainee</h3>
+            <span class="tl-org">Futuring Design Pvt. Ltd. · Pune, India</span>
+            <p>Research and engineering for smart medical and kinematic mechatronic devices.</p>
+            <ul>
+              <li>Researched and developed proof-of-concept systems for mechatronic sport-medical devices.</li>
+              <li>Developed geometric and kinematic models to generate and correct body posture during physical exercises.</li>
+              <li>Created hardware interfaces, GUI firmware, and written Python applications to store, process, and stream device telemetry to AWS.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== TOOLKIT ====================== -->
+    <section class="section toolkit" id="toolkit">
+      <div class="section__head">
+        <span class="section__index">04</span>
+        <h2 class="section__title reveal">Skills &amp; Toolkit</h2>
+        <p class="section__sub reveal">The tech stack, frameworks, and hardware platforms I use to build robust robotic systems.</p>
+      </div>
+      <div class="toolkit__cols">
+        <div class="tk reveal">
+          <h4>Languages</h4>
+          <ul><li>C++</li><li>Python</li><li>MATLAB</li></ul>
+        </div>
+        <div class="tk reveal">
+          <h4>Middleware</h4>
+          <ul><li>ROS</li><li>ROS2</li><li>Autoware</li><li>MAVROS</li><li>Orocos KDL</li></ul>
+        </div>
+        <div class="tk reveal">
+          <h4>Libraries &amp; Frameworks</h4>
+          <ul><li>PCL</li><li>OpenCV</li><li>OMPL</li><li>Moveit</li><li>Behavior Trees</li><li>OpenRMF</li></ul>
+        </div>
+        <div class="tk reveal">
+          <h4>Firmware &amp; Simulators</h4>
+          <ul><li>Ardupilot</li><li>PX4</li><li>Gazebo</li></ul>
+        </div>
+        <div class="tk reveal">
+          <h4>Sensors &amp; Hardware</h4>
+          <ul><li>Cameras (Mono/Stereo/Depth)</li><li>Lidars (2d/3d)</li><li>Radar</li><li>IMU</li><li>GPS/GNSS</li><li>Nvidia Jetson</li><li>Raspberry Pi</li><li>Intel NUC</li></ul>
+        </div>
+        <div class="tk reveal">
+          <h4>Cloud &amp; Platform</h4>
+          <ul><li>AWS</li><li>AWS IoT Core</li><li>Docker</li><li>Git</li><li>Linux</li><li>Windows</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PUBLICATIONS & EDUCATION ====================== -->
+    <section class="section publications" id="publications">
+      <div class="section__head">
+        <span class="section__index">05</span>
+        <h2 class="section__title reveal">Research &amp; Education</h2>
+        <p class="section__sub reveal">Academic achievements, degree programs, and peer-reviewed research publications.</p>
+      </div>
+
+      <!-- Research Paper -->
+      <h3 class="pub-list__label reveal">Research Papers</h3>
+      <ol class="pub-list">
+        <li class="pub reveal" data-cursor="hover">
+          <div class="pub__year">2021</div>
+          <div class="pub__main">
+            <h3>Transcutaneous Electrical Nerve Stimulation (TENS) based Assistive Device for Surgeons</h3>
+            <p class="pub__authors"><b>C. Makwana</b></p>
+            <p class="pub__venue">IEEE · April 2021</p>
+            <p class="pub__abs">Developed an assistive medical device leveraging Transcutaneous Electrical Nerve Stimulation (TENS) to alleviate fatigue and assist surgeons during long, physically demanding operating procedures. Built the mechatronic feedback loop, electrode driver circuits, and custom telemetry module.</p>
+            <div class="pub__tags"><span>TENS</span><span>Mechatronics</span><span>IEEE</span><span>Medical Devices</span></div>
+          </div>
+          <div class="pub__links">
+            <span style="font-family:var(--mono); font-size:.85rem; color:var(--muted)">Published (IEEE)</span>
+          </div>
+        </li>
+      </ol>
+
+      <!-- Education Timeline -->
+      <h3 class="pub-list__label reveal" style="margin-top: 50px;">Education</h3>
+      <div class="timeline">
+        <div class="tl-item reveal" data-cursor="hover">
+          <div class="tl-dot"></div>
+          <div class="tl-time">2019 — 2021</div>
+          <div class="tl-body">
+            <h3>M.Tech. in Mechatronics and Automation</h3>
+            <span class="tl-org">MIT-ADT University · Pune, India</span>
+            <p>Specialization in automation, control systems, signal processing, modelling, and dynamic physical simulations.</p>
+          </div>
+        </div>
+
+        <div class="tl-item reveal" data-cursor="hover">
+          <div class="tl-dot"></div>
+          <div class="tl-time">2015 — 2018</div>
+          <div class="tl-body">
+            <h3>B.Tech in Mechanical Engineering</h3>
+            <span class="tl-org">University of Pune · Pune, India</span>
+            <p>Foundational coursework in engineering mechanics, theory of machines, dynamics, and basic mechatronics interfaces.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONTACT ====================== -->
+    <section class="section contact" id="contact">
+      <div class="contact__inner">
+        <span class="section__index">06</span>
+        <h2 class="contact__title reveal">Bring the robotics challenge.<br/>Let&rsquo;s build the solution.</h2>
+        <p class="contact__sub reveal">
+          Whether you want to discuss humanoid motion control, offroad path planning, drone systems, or OpenRMF deployments, get in touch.
+        </p>
+        <a href="mailto:chiragmakwana02@gmail.com" class="contact__email reveal" data-cursor="hover">chiragmakwana02@gmail.com</a>
+
+        <div class="contact__row reveal">
+          <a href="https://github.com/chiragmakwana0296" target="_blank" rel="noopener" class="btn btn--ghost" data-cursor="hover">GitHub</a>
+          <a href="https://linkedin.com/in/chiragmakwana" target="_blank" rel="noopener" class="btn btn--ghost" data-cursor="hover">LinkedIn</a>
+          <a href="tel:+917276282798" class="btn btn--ghost" data-cursor="hover">Call +91 7276282798</a>
+          <a href="mailto:chiragmakwana02@gmail.com" class="btn btn--solid" data-cursor="hover">Send Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__left">© <span id="year">2026</span> Chirag Makwana</div>
+    <div class="footer__mid">Mumbai / Pune · India</div>
+    <button class="footer__top" id="toTop" data-cursor="hover" aria-label="Back to top">Back to top ↑</button>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
