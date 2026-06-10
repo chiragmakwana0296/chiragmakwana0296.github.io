@@ -39,7 +39,7 @@
 
   const CURSOR_CONFIG = {
     // Themes: 'default', 'crosshair', 'spotlight', 'invert', 'trail', 'none'
-    theme: 'trail'
+    theme: 'crosshair'
   };
 
   /* ---------- Custom cursor ---------- */
