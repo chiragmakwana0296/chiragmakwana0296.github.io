@@ -5,7 +5,7 @@
 (() => {
   'use strict';
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const $  = (s, c = document) => c.querySelector(s);
+  const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
   /* ---------- Preloader ---------- */
@@ -39,7 +39,7 @@
 
   const CURSOR_CONFIG = {
     // Themes: 'default', 'crosshair', 'spotlight', 'invert', 'trail', 'none'
-    theme: 'crosshair'
+    theme: 'trail'
   };
 
   /* ---------- Custom cursor ---------- */
@@ -123,7 +123,7 @@
   if (glow && !prefersReduced) {
     addEventListener('mousemove', e => {
       glow.style.left = e.clientX + 'px';
-      glow.style.top  = e.clientY + 'px';
+      glow.style.top = e.clientY + 'px';
     });
   }
 
@@ -258,7 +258,7 @@
       </svg>`,
     coverage: () => {
       let rows = '';
-      for (let i = 0; i < 5; i++) { const y = 22 + i * 15; rows += `<path class="stroke sc-draw soft" style="--len:300;animation-delay:${i*0.18}s" d="M24,${y} H276"/>`; }
+      for (let i = 0; i < 5; i++) { const y = 22 + i * 15; rows += `<path class="stroke sc-draw soft" style="--len:300;animation-delay:${i * 0.18}s" d="M24,${y} H276"/>`; }
       return `<svg viewBox="0 0 300 104" preserveAspectRatio="xMidYMid slice">
         <path class="stroke-2 sc-draw" style="--len:560" d="M24,16 H276 V92 H24 Z"/>
         ${rows}
@@ -275,14 +275,14 @@
       </svg>`,
     points: () => {
       let pts = '', lines = '';
-      const P = [[40,60],[70,38],[96,72],[130,30],[150,58],[186,44],[210,70],[244,34],[268,60],[120,80],[200,22]];
-      P.forEach((p,i)=>{ pts += `<circle class="fill-a sc-pt" cx="${p[0]}" cy="${p[1]}" r="2.6" style="animation-delay:${(i%5)*0.3}s"/>`; });
+      const P = [[40, 60], [70, 38], [96, 72], [130, 30], [150, 58], [186, 44], [210, 70], [244, 34], [268, 60], [120, 80], [200, 22]];
+      P.forEach((p, i) => { pts += `<circle class="fill-a sc-pt" cx="${p[0]}" cy="${p[1]}" r="2.6" style="animation-delay:${(i % 5) * 0.3}s"/>`; });
       lines = `<path class="stroke soft sc-draw" style="--len:420" d="M40,60 70,38 130,30 150,58 186,44 244,34 268,60"/>`;
       return `<svg viewBox="0 0 300 104" preserveAspectRatio="xMidYMid slice">${lines}${pts}</svg>`;
     },
     grid: () => {
       let dots = '';
-      for (let r=0;r<4;r++) for (let c=0;c<10;c++){ dots += `<circle class="fill-2 sc-pt" cx="${30+c*26}" cy="${24+r*18}" r="1.7" style="animation-delay:${((r+c)%5)*0.25}s"/>`; }
+      for (let r = 0; r < 4; r++) for (let c = 0; c < 10; c++) { dots += `<circle class="fill-2 sc-pt" cx="${30 + c * 26}" cy="${24 + r * 18}" r="1.7" style="animation-delay:${((r + c) % 5) * 0.25}s"/>`; }
       const path = 'M30,24 56,24 56,42 82,42 82,60 134,60 134,78 212,78 212,42 264,42';
       return `<svg viewBox="0 0 300 104" preserveAspectRatio="xMidYMid slice">
         ${dots}
@@ -292,8 +292,8 @@
     },
     tokens: () => {
       let bars = '';
-      const hs = [26,40,18,52,34,46,22,38,30,48,24,42];
-      hs.forEach((h,i)=>{ bars += `<rect class="fill-a sc-pulse" x="${22+i*22}" y="${88-h}" width="11" height="${h}" rx="2" style="animation-delay:${i*0.12}s"/>`; });
+      const hs = [26, 40, 18, 52, 34, 46, 22, 38, 30, 48, 24, 42];
+      hs.forEach((h, i) => { bars += `<rect class="fill-a sc-pulse" x="${22 + i * 22}" y="${88 - h}" width="11" height="${h}" rx="2" style="animation-delay:${i * 0.12}s"/>`; });
       return `<svg viewBox="0 0 300 104" preserveAspectRatio="xMidYMid slice">
         <line class="stroke soft" x1="14" y1="88" x2="286" y2="88"/>
         ${bars}
@@ -515,8 +515,8 @@
 
     function field(x, y) {
       return Math.sin(x * 0.018 + Math.cos(y * 0.013) * 1.7)
-           + Math.sin(y * 0.021 - Math.cos(x * 0.011) * 1.4)
-           + Math.sin((x + y) * 0.012);
+        + Math.sin(y * 0.021 - Math.cos(x * 0.011) * 1.4)
+        + Math.sin((x + y) * 0.012);
     }
     const SENSE = 250, STEP = 9, THRESH = 1.15;
     function rayHit(ox, oy, ang) {
