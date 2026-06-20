@@ -1,23 +1,28 @@
 # Chirag Makwana Portfolio Data
 
 ## Hero
-- status: Sr. Robotics Engineer · 8 Years Experience · MTech in Mechatronics
+- page_title: Chirag Makwana — Robotics Lead & Engineer
+- page_description: Chirag Makwana — Senior Robotics Engineer specializing in autonomy stacks, humanoid robot manipulation, drone flight firmware, offroad vehicle navigation, and fleet management.
+- announcement: I am a robotics professional with 7+ years of industrial experience. Refer to my details below or contact me directly.
+- status: Robotics Engineer · 8 Years Experience · MTech in Mechatronics
 - eyebrow: Chirag Makwana
 - title: Building autonomy for robots that act.
-- lede: I build and deploy autonomy stacks that turn complex code into physical movement. My work spans **humanoid visual grounding**, **heavy offroad vehicle navigation**, **autonomous UAV fleets**, and **multi-robot coordination** on real hardware.
+- lede: I build and deploy autonomy stacks that turn complex code into physical movement. My work spans **humanoid**, **physical ai**, **heavy offroad vehicle navigation**, **autonomous UAV fleets**, and **multi-robot coordination** on real hardware.
+- marquee: Humanoid Manipulation, Offroad Navigation, UAV Drone Autonomy, Fleet Management & OpenRMF, Sensor Fusion & 3D Mapping, Behavior Trees (C++), ROS/ROS2 Stack Development
 
 ## About
 - signature: Chirag Makwana
 - akamono: — Senior Robotics Engineer.
 - lead: To me, robotics is where complex mathematics meets the physical world. I specialize in building full-stack autonomy software (C++/Python, ROS/ROS2) and making sure it runs reliably on physical hardware in unstructured environments.
-- paragraph1: Over the past 7 years, I have worked across diverse robotics domains. At **Jio Platform Ltd**, I developed real-time visual grounding and pose estimation pipelines on Nvidia Jetson AGX for humanoid manipulators. At **Novus Hi-Tech**, I architected navigation frameworks and 2.5D multi-gridmap fusion for offroad heavy vehicles (JCBs).
-- paragraph2: My engineering repertoire includes designing custom motion planners, building autonomous flight controllers and behavioral landing stacks for UAVs (PX4/ArduPilot, Behavior Trees), and developing fleet management platforms using OpenRMF. I hold an M.Tech in Mechatronics and Automation, which anchors my work in control systems, kinematics, and robust software architecture.
+- paragraph1: Over the past 7 years, I have worked across diverse robotics domains. At **Jio Platform Ltd**, I developed real-time visual grounding and 6D pose estimation pipelines on Nvidia Jetson AGX for humanoid. At **Novus Hi-Tech**, I architected navigation frameworks and 2.5D multi-gridmap fusion for offroad heavy vehicles.
+- paragraph2: My engineering repertoire includes designing custom motion planners, architecting mapping and slam frameworks and behavioral landing stacks for UAVs (PX4/ArduPilot, Behavior Trees), and developing fleet management platforms using OpenRMF. I hold an M.Tech in Mechatronics and Automation, which anchors my work in control systems, kinematics, and robust software architecture.
 - stat_experience: 7+
-<!-- - stat_companies: 6 -->
-<!-- - stat_publications: 1 -->
-<!-- - stat_degrees: 0 -->
+- stat_companies: 6
+- stat_publications: 1
+- stat_degrees: 2
 
 ## Work
+- subtitle: A selection of key robotics systems and stacks I have architected, built, and deployed in the industry.
 ### Visual Grounding & 6DoF Pose
 - category: manipulation
 - scene: caption
@@ -61,6 +66,7 @@
 - stack: Kinematics, GUI_Firmware, Python, Sensors
 
 ## Experience
+- subtitle: A chronological log of my work history and contributions in the robotics industry.
 ### Sr. Robotics Engineer
 - date: July 2025 — Present
 - organization: Jio Platform Ltd · New Mumbai, India
@@ -105,12 +111,29 @@
 - bullet3: Created hardware interfaces, GUI firmware, and written Python applications to store, process, and stream device telemetry to AWS.
 
 ## Skills
+- subtitle: The tech stack, frameworks, and hardware platforms I use to build robust robotic systems.
 - Languages: C++, Python, MATLAB
 - Middleware: ROS, ROS2, Autoware, MAVROS, Orocos KDL
 - Libraries & Frameworks: PCL, OpenCV, OMPL, Moveit, Behavior Trees, OpenRMF
 - Firmware & Simulators: Ardupilot, PX4, Gazebo
 - Sensors & Hardware: Cameras (Mono/Stereo/Depth), Lidars (2d/3d), Radar, IMU, GPS/GNSS, Nvidia Jetson, Raspberry Pi, Intel NUC
 - Cloud & Platform: AWS, AWS IoT Core, Docker, Git, Linux, Windows
+
+
+<!-- ## New Section 
+- subtitle: New section discription
+### New Section Item
+- section field1: section field1 value
+- section field2: section field1 value
+- discription: this is discription of new subsection section, where user will add paragraphs
+- tags: tag1, tag2, tag3
+
+### New Section Item 2
+- section field1: section field1 value
+- section field2: section field1 value
+- discription: this is discription of new subsection section, where user will add paragraphs
+- tags: tag1, tag2, tag3
+ -->
 
 ## Research
 ### Transcutaneous Electrical Nerve Stimulation (TENS) based Assistive Device for Surgeons
@@ -121,6 +144,7 @@
 - tags: TENS, Mechatronics, IEEE, Medical Devices
 
 ## Education
+- subtitle: Academic achievements, degree programs, and peer-reviewed research publications.
 ### M.Tech. in Mechatronics and Automation
 - date: 2019 — 2021
 - organization: MIT-ADT University · Pune, India
@@ -132,7 +156,10 @@
 - description: Foundational coursework in engineering mechanics, theory of machines, dynamics, and basic mechatronics interfaces.
 
 ## Contact
-- phone: +91 7276282798
-- email: chiragmakwana02@gmail.com
+- title: Bring the robotics challenge. Let’s build the solution.
+- sub: Whether you want to discuss humanoid motion control, offroad path planning, drone systems, or OpenRMF deployments, get in touch.
+<!-- - phone: +91 7276282798 -->
+<!-- - email: chiragmakwana02@gmail.com -->
 - github: https://github.com/chiragmakwana0296
 - linkedin: https://linkedin.com/in/chiragmakwana02
+- location: Pune | Mumbai · India

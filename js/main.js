@@ -163,6 +163,41 @@
       if (titleEl && hero.title) titleEl.innerHTML = formatHeroTitle(hero.title);
       const ledeEl = $('.hero__lede');
       if (ledeEl && hero.lede) ledeEl.innerHTML = formatText(hero.lede);
+
+      // Meta tags and titles
+      if (hero.page_title) {
+        document.title = hero.page_title;
+        const ogTitle = $('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', hero.page_title);
+      }
+      if (hero.page_description) {
+        const metaDesc = $('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', hero.page_description);
+        const ogDesc = $('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', hero.page_description);
+      }
+
+      // Top announcement bar
+      const topbarEl = $('#topbar p');
+      if (topbarEl && hero.announcement) topbarEl.innerHTML = formatText(hero.announcement);
+
+      // Nav brand and preloader mark
+      if (hero.eyebrow) {
+        const brandMark = $('.nav__brand-mark');
+        const brandText = $('.nav__brand-text');
+        const preloaderMark = $('.preloader__mark');
+        const initials = hero.eyebrow.split(' ').map(n => n[0]).join('');
+        if (brandMark) brandMark.textContent = initials;
+        if (preloaderMark) preloaderMark.textContent = initials;
+        if (brandText) brandText.innerHTML = hero.eyebrow.replace(/\s+/g, '&nbsp;');
+      }
+
+      // Marquee Track
+      const marqueeTrack = $('.marquee__track');
+      if (marqueeTrack && hero.marquee) {
+        const items = hero.marquee.split(',').map(item => `<span>${item.trim()}</span><i>✦</i>`).join('');
+        marqueeTrack.innerHTML = items + items; // repeat to fill track width
+      }
     }
 
     // 2. About Section
@@ -172,8 +207,10 @@
       const about = data.about.fields;
       const sigEl = $('#aboutSignature');
       if (sigEl && about.signature) sigEl.textContent = about.signature;
-      const akaEl = $('#aboutAkamono');
-      if (akaEl && about.akamono) akaEl.textContent = about.akamono;
+      const akaEl = $('#aboutAccumulator'); // Wait, the original was #aboutAkamono
+      const akaOriginalEl = $('#aboutAkamono');
+      const targetAkaEl = akaOriginalEl || akaEl;
+      if (targetAkaEl && about.akamono) targetAkaEl.textContent = about.akamono;
       const leadEl = $('#aboutLead');
       if (leadEl && about.lead) leadEl.innerHTML = formatText(about.lead);
       const p1El = $('#aboutParagraph1');
@@ -203,6 +240,10 @@
     const hasWork = !!(data.work && data.work.items && data.work.items.length > 0);
     toggleSection('work', hasWork);
     if (hasWork) {
+      const subEl = $('#work .section__sub');
+      if (subEl && data.work.fields && data.work.fields.subtitle) {
+        subEl.textContent = data.work.fields.subtitle;
+      }
       const container = $('.work__grid');
       if (container) {
         container.innerHTML = '';
@@ -238,6 +279,10 @@
     const hasExperience = !!(data.experience && data.experience.items && data.experience.items.length > 0);
     toggleSection('experience', hasExperience);
     if (hasExperience) {
+      const subEl = $('#experience .section__sub');
+      if (subEl && data.experience.fields && data.experience.fields.subtitle) {
+        subEl.textContent = data.experience.fields.subtitle;
+      }
       const container = $('#experience .timeline');
       if (container) {
         container.innerHTML = '';
@@ -269,10 +314,15 @@
     const hasSkills = !!(data.skills && data.skills.fields && Object.keys(data.skills.fields).length > 0);
     toggleSection('toolkit', hasSkills);
     if (hasSkills) {
+      const subEl = $('#toolkit .section__sub');
+      if (subEl && data.skills.fields && data.skills.fields.subtitle) {
+        subEl.textContent = data.skills.fields.subtitle;
+      }
       const container = $('.toolkit__cols');
       if (container) {
         container.innerHTML = '';
         Object.entries(data.skills.fields).forEach(([category, listStr]) => {
+          if (category === 'subtitle') return; // skip subtitle field
           const items = listStr.split(',').map(s => `<li>${s.trim()}</li>`).join('');
           const tk = document.createElement('div');
           tk.className = 'tk reveal';
@@ -288,6 +338,17 @@
     // 6. Research Section & Education Section
     const hasResearch = !!(data.research && data.research.items && data.research.items.length > 0);
     const hasEducation = !!(data.education && data.education.items && data.education.items.length > 0);
+
+    const pubTitleEl = $('#publications .section__title');
+    if (pubTitleEl) {
+      if (hasResearch && hasEducation) {
+        pubTitleEl.textContent = 'Research & Education';
+      } else if (hasResearch) {
+        pubTitleEl.textContent = 'Research';
+      } else if (hasEducation) {
+        pubTitleEl.textContent = 'Education';
+      }
+    }
 
     const resList = $('.pub-list');
     const resLabel = resList ? resList.previousElementSibling : null;
@@ -332,6 +393,11 @@
     if (eduLabel) eduLabel.style.display = hasEducation ? '' : 'none';
 
     if (hasEducation) {
+      const subEl = $('#publications .section__sub');
+      const subText = (data.education.fields && data.education.fields.subtitle) || (data.research && data.research.fields && data.research.fields.subtitle);
+      if (subEl && subText) {
+        subEl.textContent = subText;
+      }
       const container = $('#publications .timeline');
       if (container) {
         container.innerHTML = '';
@@ -364,11 +430,73 @@
     toggleSection('contact', hasContact);
     if (hasContact) {
       const contact = data.contact.fields;
-      const cGithub = $('#contactGithub'); if (cGithub && contact.github) cGithub.href = contact.github;
-      const cLinkedin = $('#contactLinkedin'); if (cLinkedin && contact.linkedin) cLinkedin.href = contact.linkedin;
-      const cPhone = $('#contactPhone'); if (cPhone && contact.phone) { cPhone.href = `tel:${contact.phone.replace(/\s+/g, '')}`; cPhone.textContent = `Call ${contact.phone}`; }
-      const cEmail = $('#contactEmail'); if (cEmail && contact.email) cEmail.href = `mailto:${contact.email}`;
-      const cEmailLink = $('#contactEmailLink'); if (cEmailLink && contact.email) { cEmailLink.href = `mailto:${contact.email}`; cEmailLink.textContent = contact.email; }
+
+      const cGithub = $('#contactGithub');
+      if (cGithub) {
+        if (contact.github) {
+          cGithub.href = contact.github;
+          cGithub.style.display = '';
+        } else {
+          cGithub.style.display = 'none';
+        }
+      }
+
+      const cLinkedin = $('#contactLinkedin');
+      if (cLinkedin) {
+        if (contact.linkedin) {
+          cLinkedin.href = contact.linkedin;
+          cLinkedin.style.display = '';
+        } else {
+          cLinkedin.style.display = 'none';
+        }
+      }
+
+      const cPhone = $('#contactPhone');
+      if (cPhone) {
+        if (contact.phone) {
+          cPhone.href = `tel:${contact.phone.replace(/\s+/g, '')}`;
+          cPhone.textContent = `Call ${contact.phone}`;
+          cPhone.style.display = '';
+        } else {
+          cPhone.style.display = 'none';
+        }
+      }
+
+      const cEmail = $('#contactEmail');
+      if (cEmail) {
+        if (contact.email) {
+          cEmail.href = `mailto:${contact.email}`;
+          cEmail.style.display = '';
+        } else {
+          cEmail.style.display = 'none';
+        }
+      }
+
+      const cEmailLink = $('#contactEmailLink');
+      if (cEmailLink) {
+        if (contact.email) {
+          cEmailLink.href = `mailto:${contact.email}`;
+          cEmailLink.textContent = contact.email;
+          cEmailLink.style.display = '';
+        } else {
+          cEmailLink.style.display = 'none';
+        }
+      }
+
+      // Contact Headings
+      const contactTitle = $('.contact__title');
+      if (contactTitle && contact.title) contactTitle.innerHTML = formatText(contact.title).replace(/\./, '.<br/>');
+      const contactSub = $('.contact__sub');
+      if (contactSub && contact.sub) contactSub.textContent = contact.sub;
+
+      // Footer brand name, copyright name, location
+      const footerMid = $('.footer__mid');
+      if (footerMid && contact.location) footerMid.textContent = contact.location;
+      const footerLeft = $('.footer__left');
+      const eyebrowName = (data.hero && data.hero.fields && data.hero.fields.eyebrow) || 'Chirag Makwana';
+      if (footerLeft) {
+        footerLeft.innerHTML = `© <span id="year">${new Date().getFullYear()}</span> ${eyebrowName}`;
+      }
 
       // Also update Hero Meta links if present
       const heroMetaEl = $('#heroMeta');
@@ -391,11 +519,233 @@
         }
         heroMetaEl.innerHTML = html;
       }
+
+      // Update JSON-LD
+      let ldJsonEl = $('script[type="application/ld+json"]');
+      if (ldJsonEl) {
+        try {
+          const ld = JSON.parse(ldJsonEl.textContent);
+          if (eyebrowName) ld.name = eyebrowName;
+          const heroJob = (data.hero && data.hero.fields && data.hero.fields.status) ? data.hero.fields.status.split('·')[0].trim() : 'Senior Robotics Engineer';
+          ld.jobTitle = heroJob;
+          if (contact.email) ld.email = `mailto:${contact.email}`;
+          if (contact.phone) ld.telephone = contact.phone;
+          if (contact.github) ld.url = contact.github;
+          if (contact.github || contact.linkedin) {
+            ld.sameAs = [];
+            if (contact.github) ld.sameAs.push(contact.github);
+            if (contact.linkedin) ld.sameAs.push(contact.linkedin);
+          }
+          ldJsonEl.textContent = JSON.stringify(ld, null, 2);
+        } catch (e) {
+          console.error('Error updating JSON-LD:', e);
+        }
+      }
+    }
+
+    // First, remove any previously created dynamic sections to prevent duplicates on reload/re-render
+    $$('.dynamic-section').forEach(el => el.remove());
+
+    const SECTION_ORDER = [];
+    
+    // Standard section mappings
+    const standardMap = {
+      hero: { id: 'hero', label: 'Top' },
+      about: { id: 'about', label: 'About' },
+      work: { id: 'work', label: 'My Work' },
+      experience: { id: 'experience', label: 'Experience' },
+      skills: { id: 'toolkit', label: 'Skills' },
+      contact: { id: 'contact', label: 'Contact' }
+    };
+
+    // We can iterate over the keys of data in order
+    Object.keys(data).forEach(key => {
+      if (standardMap[key]) {
+        SECTION_ORDER.push({
+          key: key,
+          id: standardMap[key].id,
+          label: standardMap[key].label,
+          isStandard: true
+        });
+      } else if (key === 'research' || key === 'education') {
+        // Group research and education under publications
+        const alreadyAdded = SECTION_ORDER.find(item => item.id === 'publications');
+        if (!alreadyAdded) {
+          const hasRes = !!(data.research && data.research.items && data.research.items.length > 0);
+          const hasEdu = !!(data.education && data.education.items && data.education.items.length > 0);
+          let label = 'Research & Edu';
+          if (hasRes && hasEdu) label = 'Research & Edu';
+          else if (hasRes) label = 'Research';
+          else if (hasEdu) label = 'Education';
+
+          SECTION_ORDER.push({
+            key: ['research', 'education'],
+            id: 'publications',
+            label: label,
+            isStandard: true
+          });
+        }
+      } else {
+        // Custom dynamic section!
+        const id = key.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        const label = key.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        
+        SECTION_ORDER.push({
+          key: key,
+          id: id,
+          label: label,
+          isStandard: false
+        });
+      }
+    });
+
+    // Render custom dynamic sections
+    SECTION_ORDER.forEach(item => {
+      if (item.isStandard) return; // Standard sections are already in HTML
+
+      const secData = data[item.key];
+      const title = item.label;
+      const subtitle = secData.fields.subtitle || '';
+      const items = secData.items || [];
+
+      const sectionEl = document.createElement('section');
+      sectionEl.className = 'section dynamic-section reveal';
+      sectionEl.id = item.id;
+
+      const headEl = document.createElement('div');
+      headEl.className = 'section__head';
+      
+      const indexEl = document.createElement('span');
+      indexEl.className = 'section__index';
+      headEl.appendChild(indexEl);
+
+      const titleEl = document.createElement('h2');
+      titleEl.className = 'section__title reveal';
+      titleEl.textContent = title;
+      headEl.appendChild(titleEl);
+
+      if (subtitle) {
+        const subEl = document.createElement('p');
+        subEl.className = 'section__sub reveal';
+        subEl.textContent = subtitle;
+        headEl.appendChild(subEl);
+      }
+      sectionEl.appendChild(headEl);
+
+      // Body container
+      const bodyEl = document.createElement('div');
+      bodyEl.className = 'dynamic-section__body';
+      bodyEl.style.display = 'grid';
+      bodyEl.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
+      bodyEl.style.gap = '2rem';
+      bodyEl.style.marginTop = '3rem';
+
+      items.forEach(itemData => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'pcard reveal';
+        itemEl.dataset.cursor = 'hover';
+
+        let innerHTML = '';
+        innerHTML += `<h3>${itemData.title}</h3>`;
+
+        const descVal = itemData.fields.description || itemData.fields.discription || '';
+        if (descVal) {
+          innerHTML += `<p>${formatText(descVal)}</p>`;
+        }
+
+        if (itemData.bullets && itemData.bullets.length > 0) {
+          innerHTML += `<ul style="margin: 1rem 0; padding-left: 1.2rem; color: var(--muted); line-height: 1.6;">`;
+          itemData.bullets.forEach(b => {
+            innerHTML += `<li>${formatText(b)}</li>`;
+          });
+          innerHTML += `</ul>`;
+        }
+
+        let fieldsHTML = '';
+        Object.entries(itemData.fields).forEach(([fKey, fVal]) => {
+          if (['description', 'discription', 'tags', 'subtitle'].includes(fKey)) return;
+          fieldsHTML += `<div><strong>${fKey.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}:</strong> ${fVal}</div>`;
+        });
+        if (fieldsHTML) {
+          innerHTML += `<div style="font-size: 0.85rem; color: var(--muted); margin-top: 1rem; display: flex; flex-direction: column; gap: 0.25rem;">${fieldsHTML}</div>`;
+        }
+
+        if (itemData.fields.tags) {
+          const tagsHTML = itemData.fields.tags.split(',').map(t => `<span>${t.trim()}</span>`).join('');
+          innerHTML += `<div class="pcard__stack" style="margin-top: 1rem;">${tagsHTML}</div>`;
+        }
+
+        itemEl.innerHTML = innerHTML;
+        bodyEl.appendChild(itemEl);
+      });
+
+      sectionEl.appendChild(bodyEl);
+
+      // Insert before contact section
+      const contactSection = $('#contact');
+      if (contactSection && contactSection.parentNode) {
+        contactSection.parentNode.insertBefore(sectionEl, contactSection);
+      }
+    });
+
+    // Re-index all visible sections dynamically
+    let sectionIdx = 1;
+    $$('main section[id]').forEach(sec => {
+      if (sec.id === 'hero') return;
+      if (sec.style.display !== 'none') {
+        const indexEl = $('.section__index', sec);
+        if (indexEl) {
+          indexEl.textContent = String(sectionIdx++).padStart(2, '0');
+        }
+      }
+    });
+
+    // Build Header Nav links
+    const navLinksContainer = $('#navLinks');
+    if (navLinksContainer) {
+      navLinksContainer.innerHTML = '';
+      SECTION_ORDER.forEach(item => {
+        // Skip hero link in the header menu (just like original index.html)
+        if (item.id === 'hero') return;
+
+        // Skip sections that are hidden
+        const el = $('#' + item.id);
+        if (el && el.style.display === 'none') return;
+
+        const a = document.createElement('a');
+        a.href = '#' + item.id;
+        a.dataset.cursor = 'hover';
+        a.textContent = item.label;
+        navLinksContainer.appendChild(a);
+      });
+    }
+
+    // Build Rail Indicators
+    const railContainer = $('#rail');
+    if (railContainer) {
+      railContainer.innerHTML = '';
+      let isFirst = true;
+      SECTION_ORDER.forEach(item => {
+        // Skip sections that are hidden
+        const el = $('#' + item.id);
+        if (el && el.style.display === 'none') return;
+
+        const a = document.createElement('a');
+        a.href = '#' + item.id;
+        a.dataset.label = item.label;
+        a.dataset.cursor = 'hover';
+        a.innerHTML = '<span></span>';
+        if (isFirst) {
+          a.className = 'is-active';
+          isFirst = false;
+        }
+        railContainer.appendChild(a);
+      });
     }
   }
 
   // Fetch portfolio data
-  fetch('portfolio.md')
+  fetch('portfolio.md?t=' + Date.now())
     .then(r => r.text())
     .then(text => {
       const data = parseMarkdown(text);
@@ -516,7 +866,6 @@
     const nav = $('#nav');
     const progress = $('#scrollProgress');
     const sections = $$('main section[id]');
-    const navLinkEls = $$('.nav__links a');
     function onScroll() {
       const y = window.scrollY;
       nav && nav.classList.toggle('scrolled', y > 40);
@@ -527,7 +876,7 @@
       }
       let current = '';
       sections.forEach(sec => { if (y >= sec.offsetTop - innerHeight * 0.35) current = sec.id; });
-      navLinkEls.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+      $$('.nav__links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
     }
     addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -535,7 +884,13 @@
     /* ---------- Mobile menu ---------- */
     const burger = $('#navBurger');
     burger && burger.addEventListener('click', () => nav.classList.toggle('open'));
-    navLinkEls.forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+    const navLinks = $('#navLinks');
+    navLinks && navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        const nav = $('#nav');
+        nav && nav.classList.remove('open');
+      }
+    });
 
     /* ---------- Theme toggle ---------- */
     const toggle = $('#themeToggle');
@@ -573,12 +928,12 @@
     toTop && toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' }));
 
     /* ---------- Right rail active sync ---------- */
-    const rail = $('#rail');
-    const railLinks = rail ? $$('a', rail) : [];
     function syncRail() {
       let cur = '';
       sections.forEach(sec => { if (window.scrollY >= sec.offsetTop - innerHeight * 0.4) cur = sec.id; });
       if (!cur) cur = 'hero';
+      const rail = $('#rail');
+      const railLinks = rail ? $$('a', rail) : [];
       railLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + cur));
     }
 
