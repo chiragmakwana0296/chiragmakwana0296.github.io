@@ -1,34 +1,43 @@
 # Chirag Makwana Portfolio Data
 
 ## Hero
+- photo: @assets/img/photo.png
 - page_title: Chirag Makwana — Robotics Lead & Engineer
 - page_description: Chirag Makwana — Senior Robotics Engineer specializing in autonomy stacks, humanoid robot manipulation, drone flight firmware, offroad vehicle navigation, and fleet management.
-- announcement: I am a robotics professional with 7+ years of industrial experience. Refer to my details below or contact me directly.
+- announcement: I am a robotics professional with 8 years of industrial experience. Refer to my details below or contact me directly.
 - status: Robotics Engineer · 8 Years Experience · MTech in Mechatronics
 - eyebrow: Chirag Makwana
 - title: Building autonomy for robots that act.
-- lede: I build and deploy autonomy stacks that turn complex code into physical movement. My work spans **humanoid**, **physical ai**, **heavy offroad vehicle navigation**, **autonomous UAV fleets**, and **multi-robot coordination** on real hardware.
-- marquee: Humanoid Manipulation, Offroad Navigation, UAV Drone Autonomy, Fleet Management & OpenRMF, Sensor Fusion & 3D Mapping, Behavior Trees (C++), ROS/ROS2 Stack Development
+- lede: I build end-to-end autonomy stacks that enable robots to perceive, navigate, and interact with the physical world. My work combines **Physical AI**, **sensor fusion**, **perception**, **3D mapping and localization**, **ROS 2** and **agentic AI systems** to deliver robust autonomous solutions across **humanoids**, **heavy off-road vehicles**, **drones**, and **AMRs**.
+
+<!-- - lede: I build and deploy autonomy stacks that turn complex code into physical movement. My work spans **humanoid**, **physical ai**, **heavy offroad vehicle navigation**, **autonomous UAV fleets**, **Sensor Fusion & 3D Mapping**, **Perception** and **ROS2 Stack Development** on real hardware. -->
+
+- marquee: Physical Ai, Sensor Fusion & 3D Mapping, Perception, Navigation, UAV Drone Autonomy, ROS2 Stack Development
 
 ## About
 - signature: Chirag Makwana
 - akamono: — Senior Robotics Engineer.
-- lead: To me, robotics is where complex mathematics meets the physical world. I specialize in building full-stack autonomy software (C++/Python, ROS/ROS2) and making sure it runs reliably on physical hardware in unstructured environments.
-- paragraph1: Over the past 7 years, I have worked across diverse robotics domains. At **Jio Platform Ltd**, I developed real-time visual grounding and 6D pose estimation pipelines on Nvidia Jetson AGX for humanoid. At **Novus Hi-Tech**, I architected navigation frameworks and 2.5D multi-gridmap fusion for offroad heavy vehicles.
-- paragraph2: My engineering repertoire includes designing custom motion planners, architecting mapping and slam frameworks and behavioral landing stacks for UAVs (PX4/ArduPilot, Behavior Trees), and developing fleet management platforms using OpenRMF. I hold an M.Tech in Mechatronics and Automation, which anchors my work in control systems, kinematics, and robust software architecture.
-- stat_experience: 7+
-- stat_companies: 6
-- stat_publications: 1
-- stat_degrees: 2
+- photo: @assets/img/photo.png
+- photo_badge: **M.Tech** Robotics Professional
+
+- lead: To me, robotics is where complex mathematics meets the physical world. I am a Robotics Engineer and Solution Architect with 7+ years of experience designing and delivering autonomous systems for humanoid robots, UAVs, autonomous vehicles, and industrial robotics applications.
+
+- paragraph1: My journey from hands-on robotics software development to solution architecture has enabled me to lead end-to-end robotics programs from system design and technical strategy to deployment on real-world hardware. I specialize in **ROS2**, **Physical AI**, **perception**, **sensor fusion**, **localization**, **mapping**, **navigation**, and **NVIDIA-based edge computing platforms**. My focus is on architecting scalable autonomy solutions, guiding engineering teams, and transforming complex robotics challenges into reliable, production-ready systems.
+
+
+- stat_experience: 7
+<!-- - stat_companies: 6 -->
+<!-- - stat_publications: 1 -->
+<!-- - stat_degrees: 2 -->
 
 ## Work
 - subtitle: A selection of key robotics systems and stacks I have architected, built, and deployed in the industry.
-### Visual Grounding & 6DoF Pose
+<!-- ### Visual Grounding & 6DoF Pose
 - category: manipulation
 - scene: caption
 - company: Jio Platform Ltd
 - description: Mapped natural language instructions to a humanoid robot's end-effector workspace. Optimized pose estimation pipelines on Jetson AGX, boosting inference frame rates by 40% using foundation models.
-- stack: Jetson_AGX, 6DoF_Pose, Foundation_Models, C++
+- stack: Jetson_AGX, 6DoF_Pose, Foundation_Models, C++ -->
 
 ### Offroad JCB Navigation Stack
 - category: navigation
@@ -70,45 +79,45 @@
 ### Sr. Robotics Engineer
 - date: July 2025 — Present
 - organization: Jio Platform Ltd · New Mumbai, India
-- description: Developing advanced software stacks for humanoid robotics systems.
-- bullet1: Implemented real-time visual grounding algorithms to map spatial instructions directly to the humanoid robot’s end-effector workspace.
-- bullet2: Boosted inference frame rates by 40% by optimizing detection, segmentation, and 6DoF object pose estimation pipelines leveraging foundation models on Jetson AGX for real-time humanoid manipulation.
+- description: Developing advanced perception and manipulation stacks for humanoid robotics systems.
+<!-- - bullet1: Implemented real-time visual grounding algorithms to map spatial instructions directly to the humanoid robot’s end-effector workspace. -->
+<!-- - bullet2: Detection, segmentation, and 6DoF object pose estimation pipelines leveraging foundation models on Jetson AGX for real-time humanoid manipulation. -->
 
 ### Sr. Research Engineer
 - date: July 2024 — July 2025
 - organization: Novus Hi-Tech Robotic Systemz Pvt. Ltd. · Gurgaon, India
-- description: Led R&D for autonomous heavy machinery and offroad vehicles.
-- bullet1: Architected the navigation framework for an offroad skid-steer JCB vehicle, implementing custom path planners, motion controllers, and route tracking.
+- description: Led mapping, localization and perception pipelines for autonomous heavy machinery and offroad vehicles.
+<!-- - bullet1: Architected the navigation framework for an offroad skid-steer JCB vehicle, implementing custom path planners, motion controllers, and route tracking.
 - bullet2: Developed 2.5D Mapping and Context-based multi-gridmap fusion algorithms.
-- bullet3: Overseen development of multi-information gridmap fusion based on Probabilistic, Evidential, and Cv-class based Context methods.
+- bullet3: Overseen development of multi-information gridmap fusion based on Probabilistic, Evidential, and Cv-class based Context methods. -->
 
 ### Sr. Robotics Engineer
 - date: January 2021 — June 2024
 - organization: Acceleration Robotics (TechnoYantra Robotics Pvt Ltd) · Pune, India
-- description: Designed and built multi-modal sensor mapping and drone autonomy architectures.
-- bullet1: Designed, developed, and deployed a 2.5D Laser, Computer Vision, and Radar-based mapping framework for autonomous vehicles.
+- description: Architected and delivered end-to-end autonomy solutions across autonomous vehicles, mobile robots, agricultural fleets, and UAV platforms, encompassing mapping, navigation, sensor fusion, fleet orchestration, and mission planning. Led the design of scalable robotics software architectures leveraging ROS2, Behavior Trees, Computer Vision, and multi-sensor perception for real-world deployments.
+<!-- - bullet1: Designed, developed, and deployed a 2.5D Laser, Computer Vision, and Radar-based mapping framework for autonomous vehicles.
 - bullet2: Designed custom local/motion planners for holonomic drive robots.
 - bullet3: Developed a custom fleet management system for agricultural vehicles using RMF ROS2, including a global coverage planner.
 - bullet4: Created software modules for scheduling and managing robot fleets using BehaviorTree.CPP, with dynamic scale testing in Gazebo.
-- bullet5: Built autonomy stacks, sensor-fusion, navigation, and landing systems for delivery drones using PX4, Mavros, and BehaviorTrees.
+- bullet5: Built autonomy stacks, sensor-fusion, navigation, and landing systems for delivery drones using PX4, Mavros, and BehaviorTrees. -->
 
 ### Robotics Engineer
 - date: March 2020 — December 2020
 - organization: Exadatum Pvt. Ltd. · Pune, India
-- description: Bridged mechatronic hardware and AWS cloud networks for aerial systems.
-- bullet1: Developed an end-to-end pipeline for setting up drones on AWS-IoT core using CloudFormation, automating the deployment of pre-configured Linux images on Raspberry Pi.
+- description: Architected a cloud-connected drone platform spanning device provisioning, edge computing, autonomous flight operations, and real-time telemetry management. Delivered scalable AWS IoT, ROS, and MAVLink-based solutions integrating fleet connectivity, cloud services, and commercial UAV hardware design.
+<!-- - bullet1: Developed an end-to-end pipeline for setting up drones on AWS-IoT core using CloudFormation, automating the deployment of pre-configured Linux images on Raspberry Pi.
 - bullet2: Built a dockerized operating system based on ROS for Mavlink-based flight controllers (Ardupilot/PX4).
 - bullet3: Developed ROS packages for geo-fencing, I2C device data capture, and streaming to the cloud via MQTT and AWS Kinesis.
 - bullet4: Implemented a WebSocket-based MAVROS API on AWS Lambda for front-end to Drone-OS communication with offline sync.
-- bullet5: Designed and 3D-modeled a commercial-grade survey Hexa-copter with a 2 kg payload capacity.
+- bullet5: Designed and 3D-modeled a commercial-grade survey Hexa-copter with a 2 kg payload capacity. -->
 
 ### Consultant (Mechatronics) & Graduate Trainee
 - date: August 2018 — March 2020
 - organization: Futuring Design Pvt. Ltd. · Pune, India
 - description: Research and engineering for smart medical and kinematic mechatronic devices.
-- bullet1: Researched and developed proof-of-concept systems for mechatronic sport-medical devices.
+<!-- - bullet1: Researched and developed proof-of-concept systems for mechatronic sport-medical devices.
 - bullet2: Developed geometric and kinematic models to generate and correct body posture during physical exercises.
-- bullet3: Created hardware interfaces, GUI firmware, and written Python applications to store, process, and stream device telemetry to AWS.
+- bullet3: Created hardware interfaces, GUI firmware, and written Python applications to store, process, and stream device telemetry to AWS. -->
 
 ## Skills
 - subtitle: The tech stack, frameworks, and hardware platforms I use to build robust robotic systems.
@@ -135,13 +144,13 @@
 - tags: tag1, tag2, tag3
  -->
 
-## Research
+<!-- ## Research
 ### Transcutaneous Electrical Nerve Stimulation (TENS) based Assistive Device for Surgeons
 - date: April 2021
 - authors: C. Makwana
 - venue: IEEE · April 2021
 - abstract: Developed an assistive medical device leveraging Transcutaneous Electrical Nerve Stimulation (TENS) to alleviate fatigue and assist surgeons during long, physically demanding operating procedures. Built the mechatronic feedback loop, electrode driver circuits, and custom telemetry module.
-- tags: TENS, Mechatronics, IEEE, Medical Devices
+- tags: TENS, Mechatronics, IEEE, Medical Devices -->
 
 ## Education
 - subtitle: Academic achievements, degree programs, and peer-reviewed research publications.

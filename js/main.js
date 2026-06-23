@@ -187,9 +187,33 @@
         const brandText = $('.nav__brand-text');
         const preloaderMark = $('.preloader__mark');
         const initials = hero.eyebrow.split(' ').map(n => n[0]).join('');
-        if (brandMark) brandMark.textContent = initials;
-        if (preloaderMark) preloaderMark.textContent = initials;
+        
+        if (hero.photo) {
+          const imgHTML = `<img src="${hero.photo.replace(/^@/, '')}" alt="${hero.eyebrow}" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block;" />`;
+          if (brandMark) brandMark.innerHTML = imgHTML;
+          if (preloaderMark) {
+            preloaderMark.innerHTML = imgHTML;
+            preloaderMark.style.width = '64px';
+            preloaderMark.style.height = '64px';
+            preloaderMark.style.borderRadius = '50%';
+          }
+        } else {
+          if (brandMark) brandMark.textContent = initials;
+          if (preloaderMark) preloaderMark.textContent = initials;
+        }
+        
         if (brandText) brandText.innerHTML = hero.eyebrow.replace(/\s+/g, '&nbsp;');
+      }
+
+      // Update Favicon and OG Image
+      if (hero.photo) {
+        const faviconEl = $('link[rel="icon"]');
+        if (faviconEl) {
+          faviconEl.href = hero.photo.replace(/^@/, '');
+          faviconEl.type = '';
+        }
+        const ogImage = $('meta[property="og:image"]');
+        if (ogImage) ogImage.setAttribute('content', hero.photo.replace(/^@/, ''));
       }
 
       // Marquee Track
@@ -217,6 +241,35 @@
       if (p1El && about.paragraph1) p1El.innerHTML = formatText(about.paragraph1);
       const p2El = $('#aboutParagraph2');
       if (p2El && about.paragraph2) p2El.innerHTML = formatText(about.paragraph2);
+
+      // Render photo and photo badge
+      const photoEl = $('.about__photo img');
+      if (photoEl && about.photo) {
+        photoEl.src = about.photo.replace(/^@/, '');
+      }
+
+      if (about.photo_badge) {
+        const badgeK = $('.about__badge-k');
+        const badgeV = $('.about__badge-v');
+        const badgeEl = $('.about__badge');
+        let kText = '';
+        let vText = '';
+        const match = about.photo_badge.match(/^\*\*(.*?)\*\*(.*)$/);
+        if (match) {
+          kText = match[1].trim();
+          vText = match[2].trim();
+        } else {
+          const parts = about.photo_badge.split('|');
+          kText = parts[0] ? parts[0].trim() : '';
+          vText = parts.slice(1).join(' | ').trim();
+        }
+        if (badgeK) badgeK.textContent = kText;
+        if (badgeV) badgeV.innerHTML = formatText(vText).replace(/\|/g, '<br/>');
+        if (badgeEl) badgeEl.style.display = '';
+      } else {
+        const badgeEl = $('.about__badge');
+        if (badgeEl) badgeEl.style.display = 'none';
+      }
 
       const toggleStat = (id, val) => {
         const el = $('#' + id);
@@ -335,28 +388,15 @@
       }
     }
 
-    // 6. Research Section & Education Section
+    // 6. Research Section
     const hasResearch = !!(data.research && data.research.items && data.research.items.length > 0);
-    const hasEducation = !!(data.education && data.education.items && data.education.items.length > 0);
-
-    const pubTitleEl = $('#publications .section__title');
-    if (pubTitleEl) {
-      if (hasResearch && hasEducation) {
-        pubTitleEl.textContent = 'Research & Education';
-      } else if (hasResearch) {
-        pubTitleEl.textContent = 'Research';
-      } else if (hasEducation) {
-        pubTitleEl.textContent = 'Education';
-      }
-    }
-
-    const resList = $('.pub-list');
-    const resLabel = resList ? resList.previousElementSibling : null;
-    if (resList) resList.style.display = hasResearch ? '' : 'none';
-    if (resLabel) resLabel.style.display = hasResearch ? '' : 'none';
-
+    toggleSection('research', hasResearch);
     if (hasResearch) {
-      const container = $('.pub-list');
+      const subEl = $('#research .section__sub');
+      if (subEl && data.research.fields && data.research.fields.subtitle) {
+        subEl.textContent = data.research.fields.subtitle;
+      }
+      const container = $('#research .pub-list');
       if (container) {
         container.innerHTML = '';
         data.research.items.forEach(item => {
@@ -387,18 +427,15 @@
       }
     }
 
-    const eduList = $('#publications .timeline');
-    const eduLabel = eduList ? eduList.previousElementSibling : null;
-    if (eduList) eduList.style.display = hasEducation ? '' : 'none';
-    if (eduLabel) eduLabel.style.display = hasEducation ? '' : 'none';
-
+    // 6b. Education Section
+    const hasEducation = !!(data.education && data.education.items && data.education.items.length > 0);
+    toggleSection('education', hasEducation);
     if (hasEducation) {
-      const subEl = $('#publications .section__sub');
-      const subText = (data.education.fields && data.education.fields.subtitle) || (data.research && data.research.fields && data.research.fields.subtitle);
-      if (subEl && subText) {
-        subEl.textContent = subText;
+      const subEl = $('#education .section__sub');
+      if (subEl && data.education.fields && data.education.fields.subtitle) {
+        subEl.textContent = data.education.fields.subtitle;
       }
-      const container = $('#publications .timeline');
+      const container = $('#education .timeline');
       if (container) {
         container.innerHTML = '';
         data.education.items.forEach(item => {
@@ -422,8 +459,6 @@
         });
       }
     }
-
-    toggleSection('publications', hasResearch || hasEducation);
 
     // 7. Contact Section
     const hasContact = !!(data.contact && data.contact.fields && Object.keys(data.contact.fields).length > 0);
@@ -555,6 +590,8 @@
       work: { id: 'work', label: 'My Work' },
       experience: { id: 'experience', label: 'Experience' },
       skills: { id: 'toolkit', label: 'Skills' },
+      research: { id: 'research', label: 'Research' },
+      education: { id: 'education', label: 'Education' },
       contact: { id: 'contact', label: 'Contact' }
     };
 
@@ -567,24 +604,6 @@
           label: standardMap[key].label,
           isStandard: true
         });
-      } else if (key === 'research' || key === 'education') {
-        // Group research and education under publications
-        const alreadyAdded = SECTION_ORDER.find(item => item.id === 'publications');
-        if (!alreadyAdded) {
-          const hasRes = !!(data.research && data.research.items && data.research.items.length > 0);
-          const hasEdu = !!(data.education && data.education.items && data.education.items.length > 0);
-          let label = 'Research & Edu';
-          if (hasRes && hasEdu) label = 'Research & Edu';
-          else if (hasRes) label = 'Research';
-          else if (hasEdu) label = 'Education';
-
-          SECTION_ORDER.push({
-            key: ['research', 'education'],
-            id: 'publications',
-            label: label,
-            isStandard: true
-          });
-        }
       } else {
         // Custom dynamic section!
         const id = key.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
