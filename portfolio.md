@@ -80,44 +80,25 @@
 - date: July 2025 — Present
 - organization: Jio Platform Ltd · New Mumbai, India
 - description: Developing advanced perception and manipulation stacks for humanoid robotics systems.
-<!-- - bullet1: Implemented real-time visual grounding algorithms to map spatial instructions directly to the humanoid robot’s end-effector workspace. -->
-<!-- - bullet2: Detection, segmentation, and 6DoF object pose estimation pipelines leveraging foundation models on Jetson AGX for real-time humanoid manipulation. -->
-
 ### Sr. Research Engineer
 - date: July 2024 — July 2025
 - organization: Novus Hi-Tech Robotic Systemz Pvt. Ltd. · Gurgaon, India
 - description: Led mapping, localization and perception pipelines for autonomous heavy machinery and offroad vehicles.
-<!-- - bullet1: Architected the navigation framework for an offroad skid-steer JCB vehicle, implementing custom path planners, motion controllers, and route tracking.
-- bullet2: Developed 2.5D Mapping and Context-based multi-gridmap fusion algorithms.
-- bullet3: Overseen development of multi-information gridmap fusion based on Probabilistic, Evidential, and Cv-class based Context methods. -->
 
 ### Sr. Robotics Engineer
 - date: January 2021 — June 2024
 - organization: Acceleration Robotics (TechnoYantra Robotics Pvt Ltd) · Pune, India
 - description: Architected and delivered end-to-end autonomy solutions across autonomous vehicles, mobile robots, agricultural fleets, and UAV platforms, encompassing mapping, navigation, sensor fusion, fleet orchestration, and mission planning. Led the design of scalable robotics software architectures leveraging ROS2, Behavior Trees, Computer Vision, and multi-sensor perception for real-world deployments.
-<!-- - bullet1: Designed, developed, and deployed a 2.5D Laser, Computer Vision, and Radar-based mapping framework for autonomous vehicles.
-- bullet2: Designed custom local/motion planners for holonomic drive robots.
-- bullet3: Developed a custom fleet management system for agricultural vehicles using RMF ROS2, including a global coverage planner.
-- bullet4: Created software modules for scheduling and managing robot fleets using BehaviorTree.CPP, with dynamic scale testing in Gazebo.
-- bullet5: Built autonomy stacks, sensor-fusion, navigation, and landing systems for delivery drones using PX4, Mavros, and BehaviorTrees. -->
 
 ### Robotics Engineer
 - date: March 2020 — December 2020
 - organization: Exadatum Pvt. Ltd. · Pune, India
 - description: Architected a cloud-connected drone platform spanning device provisioning, edge computing, autonomous flight operations, and real-time telemetry management. Delivered scalable AWS IoT, ROS, and MAVLink-based solutions integrating fleet connectivity, cloud services, and commercial UAV hardware design.
-<!-- - bullet1: Developed an end-to-end pipeline for setting up drones on AWS-IoT core using CloudFormation, automating the deployment of pre-configured Linux images on Raspberry Pi.
-- bullet2: Built a dockerized operating system based on ROS for Mavlink-based flight controllers (Ardupilot/PX4).
-- bullet3: Developed ROS packages for geo-fencing, I2C device data capture, and streaming to the cloud via MQTT and AWS Kinesis.
-- bullet4: Implemented a WebSocket-based MAVROS API on AWS Lambda for front-end to Drone-OS communication with offline sync.
-- bullet5: Designed and 3D-modeled a commercial-grade survey Hexa-copter with a 2 kg payload capacity. -->
 
 ### Consultant (Mechatronics) & Graduate Trainee
 - date: August 2018 — March 2020
 - organization: Futuring Design Pvt. Ltd. · Pune, India
 - description: Research and engineering for smart medical and kinematic mechatronic devices.
-<!-- - bullet1: Researched and developed proof-of-concept systems for mechatronic sport-medical devices.
-- bullet2: Developed geometric and kinematic models to generate and correct body posture during physical exercises.
-- bullet3: Created hardware interfaces, GUI firmware, and written Python applications to store, process, and stream device telemetry to AWS. -->
 
 ## Skills
 - subtitle: The tech stack, frameworks, and hardware platforms I use to build robust robotic systems.
