@@ -20,12 +20,12 @@
 - photo: @assets/img/photo.png
 - photo_badge: **M.Tech** Robotics Professional
 
-- lead: To me, robotics is where complex mathematics meets the physical world. I am a Robotics Engineer and Solution Architect with 7+ years of experience designing and delivering autonomous systems for humanoid robots, UAVs, autonomous vehicles, and industrial robotics applications.
+- lead: To me, robotics is where complex mathematics meets the physical world. I am a Robotics Engineer and Solution Architect with 8 years of experience designing and delivering autonomous systems for humanoid robots, UAVs, autonomous vehicles, and industrial robotics applications.
 
 - paragraph1: My journey from hands-on robotics software development to solution architecture has enabled me to lead end-to-end robotics programs from system design and technical strategy to deployment on real-world hardware. I specialize in **ROS2**, **Physical AI**, **perception**, **sensor fusion**, **localization**, **mapping**, **navigation**, and **NVIDIA-based edge computing platforms**. My focus is on architecting scalable autonomy solutions, guiding engineering teams, and transforming complex robotics challenges into reliable, production-ready systems.
 
 
-- stat_experience: 7
+- stat_experience: 8
 <!-- - stat_companies: 6 -->
 <!-- - stat_publications: 1 -->
 <!-- - stat_degrees: 2 -->
